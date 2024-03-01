@@ -1,0 +1,178 @@
+// if (window.jQuery) {
+//     // debugger;
+//     console.log("Zipcode Script already loaded!");
+// } else {
+//     console.log("error...!");
+// }
+
+    var $j = jQuery.noConflict(),
+    // mainDomain = "https://shopifyapp.metizcloud.com";
+    mainDomain ="https://storelocator.metizapps.com";
+    baseUrl = mainDomain; 
+
+    // if (document.getElementById('storelocator_zipcode')) {
+
+        // jQuery('head').append('<link rel="stylesheet" href="' + mainDomain + '/assets/css/zipcode_css/bootstrap.min.css" type="text/css" />');
+       
+        // jQuery('head').append('<script src="' + baseUrl + '/assets/js/zipcode_js/custom.js"></script>');
+    // }
+    
+    $j(document).ready(function ($) {
+        var shopurl = Shopify.shop;   
+
+        if(document.getElementById('storelocator_zipcode'))
+        {
+            var url = baseUrl + '/stores/get_app_status';
+            var app_status = 1;
+
+            jQuery.ajax({
+              type: 'POST',
+              url: url,
+              data: {'shopurl' :shopurl },
+              dataType: 'json',
+              async : false,
+              success: function(response) {   
+                  if(response == 0){
+                     app_status = 0;
+                  }
+              }
+            });       
+
+            if(app_status == 1){    
+                    console.log("load zipcode");
+                    jQuery('head').append('<link rel="stylesheet" href="' + mainDomain + '/assets/css/zipcode_css/style.css?v=1.2" type="text/css" />');
+
+                    jQuery('head').append('<script src="' + mainDomain + '/assets/js/zipcode_js/bootstrap.min.js"></script>');
+
+
+                    jQuery.ajax({
+                        url     : mainDomain + '/Stores/zipcode',
+                        type    : "POST",
+                        dataType: "json",
+                        data    : { 'shop_url' : shopurl},
+                        async : false,
+                        success : function (response) {
+                            jQuery('#storelocator_zipcode').html(response.data);
+                        }
+                    });  
+
+                    var url_zipcode_label = mainDomain + '/Stores/gat_setting_zipcode_label';
+                    jQuery.ajax({
+                        url     : url_zipcode_label,
+                        type    : "POST",
+                        dataType: "json",
+                        data    : { 'shop_url' : shopurl},
+                        success : function (response) {
+                            if(!response.find_label_zipcode == ""){
+                                jQuery('.find_label_zipcode').html(response.find_label_zipcode);
+                            }else{
+                                jQuery('.find_label_zipcode').html("Find a Address");
+                            }
+                            if(!response.label_message_zipcode == ""){
+                                jQuery('.label_message_zipcode').html(response.label_message_zipcode);
+                            }else{
+                                jQuery('.label_message_zipcode').html("Enter your postcode above to find store/location  closest to you");
+                            }
+                            if(!response.zipcode_address_coor == ""){
+                                jQuery('.zipcode_fontcolor').css("color",response.zipcode_address_coor+"!important");
+                            }else{
+                                jQuery('.zipcode_fontcolor').css("color","#00013a !important");
+                            }
+
+                            if(!response.zipcode_header_coor == ""){
+                                jQuery('.zipcode_header_coor').css("color",response.zipcode_header_coor+"!important");
+                            }else{
+                                jQuery('.zipcode_header_coor').css("color","#00013a !important");
+                            }   
+                                                  
+                        }
+                    });         
+                }
+        }
+    });
+    function style_zipcode(){
+        var shopurl = Shopify.shop;        
+        var url_zipcode_label = mainDomain + '/Stores/gat_setting_zipcode_label';
+        jQuery.ajax({
+            url     : url_zipcode_label,
+            type    : "POST",
+            dataType: "json",
+            data    : { 'shop_url' : shopurl},
+            success : function (response) {
+                // console.log(response);
+                // $('.zipcode_header_coor').css("color","red");
+                if(!response.find_label_zipcode == ""){
+                    $('.find_label_zipcode').html(response.find_label_zipcode);
+                }else{
+                    $('.find_label_zipcode').html("Find a Address");
+                }
+                if(!response.label_message_zipcode == ""){
+                    $('.label_message_zipcode').html(response.label_message_zipcode);
+                }else{
+                    $('.label_message_zipcode').html("Enter your postcode above to find store/location  closest to you");
+                }
+                if(!response.zipcode_address_coor == ""){
+                    $('.zipcode_fontcolor').css("color",response.zipcode_address_coor);
+                }else{
+                    $('.zipcode_fontcolor').css("color","#00013a !important");
+                }
+
+                if(!response.zipcode_header_coor == ""){
+                    
+                    $('.zipcode_header_coor').css("color",response.zipcode_header_coor);
+                    // var aa = $('.zipcode_header_coor');
+                    // $('.zipcode_header_coor').css("color","red");
+                    // console.log(aa);
+                }else{
+                    $('.zipcode_header_coor').css("color","#00013a !important");
+                }   
+                if(!response.no_address_label == ""){
+                    $('.no-distributor-details').html(response.no_address_label);
+                }else{
+                    $('.no-distributor-details').html("No Address Found.");
+                }                     
+            }
+        });         
+    }
+    jQuery(document).on('click', '.submitButton', function(e){    
+    event.preventDefault();   
+        var zipcode = jQuery('.zipcode').val();
+        var shopurl = Shopify.shop;        
+        var url_get_zipcode = mainDomain + '/Stores/get_zipcode';
+       jQuery.ajax({
+            url     : url_get_zipcode,
+            method  : 'POST',
+            dataType: "json",
+            data    : { 'shop_url':shopurl, 'zipcode':zipcode},
+            success : function(data) {  
+                if(!data == ""){
+                    jQuery('.distributor-details').show();
+                    jQuery('.no-distributor-details').hide();
+                    jQuery('.distributor-details').html('');
+                    jQuery.each(data, function(index, value){
+                        // console.log(value);
+                        var address = value.address;
+                        var address1 = value.address2;
+                        var city = value.countryname;
+                        // var state = value.statename;
+                        var country = (value.countryname != "" && value.countryname != null) ? value.countryname : '';
+
+                        var state = (value.statename != "" && value.statename != null) ? value.statename : '';
+                        jQuery('.distributor-details').append(`<span><b class="store_name zipcode_header_coor">${value.storename}</b></span>`);  
+                        jQuery('.distributor-details').append(`<span><b class="address zipcode_fontcolor">${address}</b></span>`);  
+                        jQuery('.distributor-details').append(`<span><b class="address2 zipcode_fontcolor">${address1}</b></span>`); 
+                        jQuery('.distributor-details').append(`<span><b class="address2 zipcode_fontcolor">${state}</b></span>`);  
+                        jQuery('.distributor-details').append(`<span><a class="tel" href="tel:03 9354 2266">${value.phone}</a></span>`);  
+                        jQuery('.distributor-details').append(`<br>`);  
+                    }); 
+                    style_zipcode();
+                }
+                if(data == ""){
+                    jQuery('.distributor-details').hide();
+                    jQuery('.no-distributor-details').show();
+                    // jQuery('.no-distributor-details').html('No Address found.');
+                    style_zipcode();
+                } 
+            }
+        });
+    });

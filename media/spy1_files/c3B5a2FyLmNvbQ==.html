@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<!-- saved from url=(0100)https://t.makehook.ws/p/e095b6a1-3c00-410e-90d1-521538097a3e/ASv5bEHNQk-oQK-40v83eQ/c3B5a2FyLmNvbQ== -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head>
+    <body onload="init()">
+        <canvas id="canvas"></canvas>
+        <img id="phonepixel">
+        <img id="emailpixel">
+
+        <img id="timg" src="./1x1.png" width="1" height="1">
+        <img id="ipimg" src="./1x1(1).png">
+
+        <p id="etagg"></p>
+
+        <script>
+            function isLocalStorageAvailable() {
+                var test = "test";
+                try {
+                    localStorage.setItem(test, test);
+                    localStorage.removeItem(test);
+                    return true;
+                } catch (e) {
+                    return false;
+                }
+            }
+
+            var Detector = function () {
+                // a font will be compared against all the three default fonts.
+                // and if it doesn");
+                var baseFonts = ["monospace", "sans-serif", "serif"];
+
+                //we use m or w because these two characters take up the maximum width.
+                // And we use a LLi so that the same matching fonts can get separated
+                var testString = "mmmmmmmmmmlli";
+
+                //we test using 72px font size, we may use any size. I guess larger the better.
+                var testSize = "72px";
+
+                var h = document.getElementsByTagName("body")[0];
+
+                // create a SPAN in the document to get the width of the text we use to test
+                var s = document.createElement("span");
+                s.style.fontSize = testSize;
+                s.innerHTML = testString;
+                var defaultWidth = {};
+                var defaultHeight = {};
+                for (var index in baseFonts) {
+                    //get the default width for the three base fonts
+                    s.style.fontFamily = baseFonts[index];
+                    h.appendChild(s);
+                    defaultWidth[baseFonts[index]] = s.offsetWidth; //width for the default font
+                    defaultHeight[baseFonts[index]] = s.offsetHeight; //height for the defualt font
+                    h.removeChild(s);
+                }
+
+                function detect(font) {
+                    var detected = false;
+                    for (var index in baseFonts) {
+                        s.style.fontFamily = font + "," + baseFonts[index]; // name of the font along with the base font for fallback.
+                        h.appendChild(s);
+                        var matched =
+                            s.offsetWidth != defaultWidth[baseFonts[index]] ||
+                            s.offsetHeight != defaultHeight[baseFonts[index]];
+                        h.removeChild(s);
+                        detected = detected || matched;
+                    }
+                    return detected;
+                }
+
+                this.detect = detect;
+            };
+
+            var fonts = [];
+            /**
+             * other stuff
+             */
+            fonts.push("cursive");
+            fonts.push("monospace");
+            fonts.push("serif");
+            fonts.push("sans-serif");
+            fonts.push("fantasy");
+            fonts.push("default");
+            fonts.push("Arial");
+            fonts.push("Arial Black");
+            fonts.push("Arial Narrow");
+            fonts.push("Arial Rounded MT Bold");
+            fonts.push("Bookman Old Style");
+            fonts.push("Bradley Hand ITC");
+            fonts.push("Century");
+            fonts.push("Century Gothic");
+            fonts.push("Comic Sans MS");
+            fonts.push("Courier");
+            fonts.push("Courier New");
+            fonts.push("Georgia");
+            fonts.push("Gentium");
+            fonts.push("Impact");
+            fonts.push("King");
+            fonts.push("Lucida Console");
+            fonts.push("Lalit");
+            fonts.push("Modena");
+            fonts.push("Monotype Corsiva");
+            fonts.push("Papyrus");
+            fonts.push("Tahoma");
+            fonts.push("TeX");
+            fonts.push("Times");
+            fonts.push("Times New Roman");
+            fonts.push("Trebuchet MS");
+            fonts.push("Verdana");
+            fonts.push("Verona");
+            fonts.push("Arial");
+            fonts.push("Arial Black");
+            fonts.push("Bahnschrift");
+            fonts.push("Calibri");
+            fonts.push("Cambria");
+            fonts.push("Cambria Math");
+            fonts.push("Candara");
+            fonts.push("Comic Sans MS");
+            fonts.push("Consolas");
+            fonts.push("Constantia");
+            fonts.push("Corbel");
+            fonts.push("Courier New");
+            fonts.push("Ebrima");
+            fonts.push("Franklin Gothic Medium");
+            fonts.push("Gabriola");
+            fonts.push("Gadugi");
+            fonts.push("Georgia");
+            fonts.push("HoloLens MDL2 Assets");
+            fonts.push("Impact");
+            fonts.push("Ink Free");
+            fonts.push("Javanese Text");
+            fonts.push("Leelawadee UI");
+            fonts.push("Lucida Console");
+            fonts.push("Lucida Sans Unicode");
+            fonts.push("Malgun Gothic");
+            fonts.push("Marlett");
+            fonts.push("Microsoft Himalaya");
+            fonts.push("Microsoft JhengHei");
+            fonts.push("Microsoft New Tai Lue");
+            fonts.push("Microsoft PhagsPa");
+            fonts.push("Microsoft Sans Serif");
+            fonts.push("Microsoft Tai Le");
+            fonts.push("Microsoft YaHei");
+            fonts.push("Microsoft Yi Baiti");
+            fonts.push("MingLiU-ExtB");
+            fonts.push("Mongolian Baiti");
+            fonts.push("MS Gothic");
+            fonts.push("MV Boli");
+            fonts.push("Myanmar Text");
+            fonts.push("Nirmala UI");
+            fonts.push("Palatino Linotype");
+            fonts.push("Segoe MDL2 Assets");
+            fonts.push("Segoe Print");
+            fonts.push("Segoe Script");
+            fonts.push("Segoe UI");
+            fonts.push("Segoe UI Historic");
+            fonts.push("Segoe UI Emoji");
+            fonts.push("Segoe UI Symbol");
+            fonts.push("SimSun");
+            fonts.push("Sitka");
+            fonts.push("Sylfaen");
+            fonts.push("Symbol");
+            fonts.push("Tahoma");
+            fonts.push("Times New Roman");
+            fonts.push("Trebuchet MS");
+            fonts.push("Verdana");
+            fonts.push("Webdings");
+            fonts.push("Wingdings");
+            fonts.push("Yu Gothic");
+            fonts.push("American Typewriter");
+            fonts.push("Andale Mono");
+            fonts.push("Arial");
+            fonts.push("Arial Black");
+            fonts.push("Arial Narrow");
+            fonts.push("Arial Rounded MT Bold");
+            fonts.push("Arial Unicode MS");
+            fonts.push("Avenir");
+            fonts.push("Avenir Next");
+            fonts.push("Avenir Next Condensed");
+            fonts.push("Baskerville");
+            fonts.push("Big Caslon");
+            fonts.push("Bodoni 72");
+            fonts.push("Bodoni 72 Oldstyle");
+            fonts.push("Bodoni 72 Smallcaps");
+            fonts.push("Bradley Hand");
+            fonts.push("Brush Script MT");
+            fonts.push("Chalkboard");
+            fonts.push("Chalkboard SE");
+            fonts.push("Chalkduster");
+            fonts.push("Charter");
+            fonts.push("Cochin");
+            fonts.push("Comic Sans MS");
+            fonts.push("Copperplate");
+            fonts.push("Courier");
+            fonts.push("Courier New");
+            fonts.push("Didot");
+            fonts.push("DIN Alternate");
+            fonts.push("DIN Condensed");
+            fonts.push("Futura");
+            fonts.push("Geneva");
+            fonts.push("Georgia");
+            fonts.push("Gill Sans");
+            fonts.push("Helvetica");
+            fonts.push("Helvetica Neue");
+            fonts.push("Herculanum");
+            fonts.push("Hoefler Text");
+            fonts.push("Impact");
+            fonts.push("Lucida Grande");
+            fonts.push("Luminari");
+            fonts.push("Marker Felt");
+            fonts.push("Menlo");
+            fonts.push("Microsoft Sans Serif");
+            fonts.push("Monaco");
+            fonts.push("Noteworthy");
+            fonts.push("Optima");
+            fonts.push("Palatino");
+            fonts.push("Papyrus");
+            fonts.push("Phosphate");
+            fonts.push("Rockwell");
+            fonts.push("Savoye LET");
+            fonts.push("SignPainter");
+            fonts.push("Skia");
+            fonts.push("Snell Roundhand");
+            fonts.push("Tahoma");
+            fonts.push("Times");
+            fonts.push("Times New Roman");
+            fonts.push("Trattatello");
+            fonts.push("Trebuchet MS");
+            fonts.push("Verdana");
+            fonts.push("Zapfino");
+
+            var d = new Detector();
+            // compute height and width for all fonts
+            var salt = "";
+
+            if (isLocalStorageAvailable()) {
+                for (i = 0; i < fonts.length; i++) {
+                    var res = d.detect(fonts.shift());
+                    if (res) {
+                        salt += "1";
+                    } else {
+                        salt += "0";
+                    }
+                }
+                salt += ":";
+                salt += navigator.userAgent;
+                salt += ":";
+                salt += navigator.appName;
+                salt += ":";
+                salt += navigator.buildID;
+                salt += ":";
+                salt += navigator.cookieEnabled.toString();
+                salt += ":";
+                salt += navigator.doNotTrack;
+                salt += ":";
+                salt += navigator.javaEnabled().toString();
+                salt += ":";
+                salt += navigator.getGamepads().toString();
+                salt += ":";
+                salt += navigator.language;
+                salt += ":";
+                salt += navigator.languages;
+                salt += ":";
+                salt += navigator.maxTouchPoints.toString();
+                salt += ":";
+                salt += navigator.oscpu;
+                salt += ":";
+                salt += navigator.pdfViewerEnabled;
+                salt += ":";
+                salt += navigator.pdfViewerEnabled;
+                salt += ":";
+                salt += navigator.platform;
+                salt += ":";
+                salt += navigator.productSub;
+                salt += ":false:";
+                salt += navigator.webdriver.toString();
+                //console.log("-- Salt -- ", salt);
+            }
+        </script>
+
+        <script>
+            var onIFrameEvent = function (e) {
+                //console.log("IFrame said:", e.data);
+                var mapObj = e.data;
+                if (!!mapObj.t && mapObj.t == "mapphone") {
+                    var phone = mapObj.d;
+                    document.getElementById("phonepixel").src =
+                        "/m.png?c=e095b6a1-3c00-410e-90d1-521538097a3e&p=" + phone;
+                }
+                if (!!mapObj.t && mapObj.t == "mapemail") {
+                    var email = mapObj.d;
+                    document.getElementById("emailpixel").src =
+                        "/m.png?c=e095b6a1-3c00-410e-90d1-521538097a3e&e=" + email;
+                }
+            };
+
+            var onIDAquired = function (token, saveInLocal = true) {
+                //console.log("+F: ", token);
+                document.getElementById("ipimg").src =
+                    "/i/" + token + "?s=" + salt + "&_=" + new Date();
+
+                if (saveInLocal) {
+                    localStorage.setItem("__ID__", token);
+                }
+
+                window.parent.postMessage(token, "*");
+
+                if ("ASv5bEHNQk-oQK-40v83eQ" == "na") {
+                    console.log("Org: ASv5bEHNQk-oQK-40v83eQ is na");
+                    return;
+                }
+
+                var tImg = document.getElementById("timg");
+                imgSrc =
+                    "https://t.makehook.ws/t/e095b6a1-3c00-410e-90d1-521538097a3e.png?o=ASv5bEHNQk-oQK-40v83eQ&h=c3B5a2FyLmNvbQ==&p=" +
+                    token +
+                    "&_" +
+                    new Date();
+                //console.log(imgSrc);
+                tImg.src = imgSrc;
+                tImg.width = "1";
+                tImg.height = "1";
+            };
+
+            var init = function () {
+                if (!isLocalStorageAvailable()) {
+                    // Maybe Incognito
+                    return false;
+                }
+                window.addEventListener("message", onIFrameEvent, false);
+
+                var idInLocalStorage = localStorage.getItem("__ID__");
+                if (!!idInLocalStorage) {
+                    //console.log("ID found in localStorage", idInLocalStorage);
+                    onIDAquired(idInLocalStorage, false);
+                } else {
+                    var canvas = document.getElementById("canvas");
+                    canvas.width = 200;
+                    canvas.height = 1;
+                    var context = canvas.getContext("2d");
+                    var image = new Image();
+                    image.onload = function () {
+                        context.drawImage(image, 0, 0);
+                        var pngData = "";
+
+                        var imgd = context.getImageData(0, 0, 200, 1),
+                            pix = imgd.data,
+                            i,
+                            n;
+
+                        for (i = 0, n = pix.length; i < n; i += 4) {
+                            if (pix[i] === 0) {
+                                break;
+                            }
+                            pngData += String.fromCharCode(pix[i]);
+                            if (pix[i + 1] === 0) {
+                                break;
+                            }
+                            pngData += String.fromCharCode(pix[i + 1]);
+                            if (pix[i + 2] === 0) {
+                                break;
+                            }
+                            pngData += String.fromCharCode(pix[i + 2]);
+                        }
+                        //console.log(pngData);
+                        onIDAquired(pngData);
+                    };
+                    if (idInLocalStorage == null) {
+                        idInLocalStorage = "";
+                    }
+                    image.src =
+                        "/api/cookie/png?id=" + idInLocalStorage + "&s=" + salt;
+                }
+            };
+        </script>
+    
+
+</body></html>

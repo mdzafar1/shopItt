@@ -1,0 +1,85 @@
+/** Shopify CDN: Minification failed
+
+Line 7:0 Transforming let to the configured target environment ("es5") is not supported yet
+
+**/
+var hadInit = false;
+let interval = setInterval(function(){
+  if($('.wizzy-search-input').length) {
+     // window.wizzySearchInit();
+      hadInit = true;
+      $(".mini_search_frm").attr('action', '/pages/search');
+      clearInterval(interval);
+  }
+},100); 
+
+window.wizzyConfig.events.registerEvent(window.wizzyConfig.events.allowedEvents.PRODUCTS_RESULTS_RENDERED, function(payload) {
+   document.querySelector(".close_pp").click();
+});
+
+$('body').on('click', '.icon_search', function() {
+	$(".wizzy-search-input").click();
+});
+$('body').on('click', '.wizzy-search-back', function() {
+	$(".close_pp").click();
+});
+
+window.wizzyConfig.events.registerEvent(window.wizzyConfig.events.allowedEvents.PRODUCTS_RESULTS_RENDERED, function(payload) {
+  	$('.wizzy-search-wrapper').removeClass('mobileTapped');
+});
+
+$(document).on('click','body .wizzy-common-select-selector',function(){
+    $(".wizzy-common-select-selector").toggleClass("downArrow");
+});
+
+window.wizzyConfig.events.registerEvent(window.wizzyConfig.events.allowedEvents.BEFORE_SEARCH_EXECUTED, function(payload) {
+  	var query = payload.q;
+    var newQuery = query.replace(/([-,.€~!@#$%^&*()_+=`{}\[\]\|\\\/:;'<>])+/g, '');
+    payload.q = newQuery;
+    return payload;
+});
+window.wizzyConfig.events.registerEvent(window.wizzyConfig.events.allowedEvents.BEFORE_FILTERS_EXECUTED, function(payload) {
+  	var query = payload.filters.q;
+    var newQuery = query.replace(/([-,.€~!@#$%^&*()_+=`{}\[\]\|\\\/:;'<>])+/g, '');
+    payload.filters.q = newQuery;
+    return payload;
+});
+window.wizzyConfig.events.registerEvent(window.wizzyConfig.events.allowedEvents.BEFORE_AUTOCOMPLETE_EXECUTED, function(payload) {
+  	var query = payload.q;
+    var newQuery = query.replace(/([-,.€~!@#$%^&*()_+=`{}\[\]\|\\\/:;'<>])+/g, '');
+    payload.q = newQuery;
+    return payload;
+});
+
+$('body').on("click",'.wizzy-search-glass', (e) => {
+$('#wizzy-search-input').attr("name", "q");
+$('#wizzy-search-form').attr("action", "/pages/search");
+    $('#wizzy-search-form').submit();
+})
+
+//New Autocomplete:-
+if($(window).width() >=800){
+  $('.icon_search').on('click', function(){
+      $('#wizzy-search-modal-mini').toggleClass('show');
+  })
+  $('#wizzy-search-form').on('submit', function(){
+     $(window).scrollTop(0);
+     $('#wizzy-search-modal-mini').toggleClass('show');
+  })
+// Autocomplete and wizzy-input position
+  $(document).ready(function() {
+      $(window).scroll(function(){
+          if ($('#ntheader').hasClass('live_stuck')) {
+          $('#wizzy-search-modal-mini').css('top','90px');
+          $('.wizzy-autocomplete-wrapper').css('top','140px');
+          }else {
+          $('#wizzy-search-modal-mini').css('top','123px');
+          $('.wizzy-autocomplete-wrapper').css('top','173px');
+          }
+      });
+  });
+}
+window.wizzyConfig.events.registerEvent(window.wizzyConfig.events.allowedEvents.PRODUCTS_RESULTS_RENDERED, function(payload) {
+  $('.wizzy-search-back')[0].click();
+});
+

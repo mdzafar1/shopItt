@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<!-- saved from url=(0301)https://tracker.wigzopush.com/onsitepush/campaign/render/template/16037/e095b6a1-3c00-410e-90d1-521538097a3e?_=1702893218522&_siteid=ASv5bEHNQk-oQK-40v83eQ&bm=&um=&pm=&cu=389160bdba20f7183e126b03b5b3a1168a45f79b&cookieid=e095b6a1-3c00-410e-90d1-521538097a3e&t=f13810f1-12f9-456d-8e17-e61c579c9949&r433 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link href="./css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./jquery-1.7.1.min.js.download"></script>
+<style id="WIGZOMAIN">
+        .wigzoHolder,
+        .wigzoHolder * {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            outline: 0;
+        }
+        .wigzo-notification {
+            height: 100%
+        }
+        .wigzo-event-image {
+            height: 70px;
+            width: 95px;
+            position: absolute;
+            left: 3px;
+            float: left;
+            background: #fff;
+            z-index: 9;
+        }
+        .wigzo-event-image>a {
+            background-color: #fefefe;
+        }
+        .wigzo-event-image>a>img,
+        .wigzo-event-image>img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            max-width: 100%;
+            max-height: 90%;
+            -moz-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            -moz-transform-style: preserve-3d;
+            -o-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d
+        }
+        .wigzo-notification-info {
+            padding: 15px 20px 15px 110px;
+            height: 100%;
+            position: relative
+        }
+        .wigzoHolder,
+        .wigzoHolder.smaller-size {
+            position: fixed;
+           /* background: #fefefe;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+            border: 2px solid #ebeef0
+            */
+        }
+        .wigzo-notification-info .wigzo-message {
+            font-size: 14px;
+            color: #484848;
+            font-weight: 400
+        }
+        .wigzo-notification-info .wigzo-message  p{
+            margin: 0 0 10px;
+        }
+        .wigzo-notification-info .wigzo-message span {
+            font-weight: 400;
+            line-height: normal;
+            font-family: Arial, Helvetica, sans-serif !important;
+            font-size: 14px !important;
+            color: #000000 !important;
+        }
+        .wigzoHolder {
+            display: none;
+            height: auto;
+        }
+        .wigzoHolder.wigzo-bottom-left{
+            -moz-animation: slide-wigzo-up-bottom-left 2s ease-in-out 1;
+            -o-animation: slide-wigzo-up-bottom-left 2s ease-in-out 1;
+            -ms-animation: slide-wigzo-up-bottom-left 2s ease-in-out 1;
+            -webkit-animation: slide-wigzo-up-bottom-left 2s ease-in-out 1;
+            animation: slide-wigzo-up-bottom-left 2s ease-in-out 1;
+            bottom: 10px;
+            left: 10px;
+        }
+        .wigzoHolder.wigzo-top-left{
+            -moz-animation: slide-wigzo-down-top-left 2s ease-in-out 1;
+            -o-animation: slide-wigzo-down-top-left 2s ease-in-out 1;
+            -ms-animation: slide-wigzo-down-top-left 2s ease-in-out 1;
+            -webkit-animation: slide-wigzo-down-top-left 2s ease-in-out 1;
+            animation: slide-wigzo-down-top-left 2s ease-in-out 1;
+            top: 10px;
+            left: 10px;
+        }
+        .wigzoHolder.wigzo-top-right{
+            -moz-animation: slide-wigzo-down-top-right 2s ease-in-out 1;
+            -o-animation: slide-wigzo-down-top-right ease-in-out 1;
+            -ms-animation: slide-wigzo-down-top-right 2s ease-in-out 1;
+            -webkit-animation: slide-wigzo-down-top-right 2s ease-in-out 1;
+            animation: slide-wigzo-down-top-right 2s ease-in-out 1;
+            top: 10px;
+            right: 10px;
+        }
+        .wigzoHolder.wigzo-bottom-right{
+            -moz-animation: slide-wigzo-up-bottom-right 2s ease-in-out 1;
+            -o-animation: slide-wigzo-up-bottom-right ease-in-out 1;
+            -ms-animation: slide-wigzo-up-bottom-right 2s ease-in-out 1;
+            -webkit-animation: slide-wigzo-up-bottom-right 2s ease-in-out 1;
+            animation: slide-wigzo-up-bottom-right 2s ease-in-out 1;
+            bottom: 10px;
+            right: 10px;
+        }
+        .wigzoHolder a {
+            text-decoration: none !important;
+            color: inherit !important;
+        }
+        .wigzoHolder a:hover {
+            text-decoration: underline
+        }
+        .wigzoHolder.smaller-size {
+            width: 360px;
+            height: auto
+        }
+        .smaller-size .wigzo-notification-info .wigzo-message {
+            font-family: Arial, Helvetica, sans-serif !important;
+            font-size: 16px !important;
+            color: #000000 !important;
+            line-height: normal;
+            padding-bottom: 0;
+        }
+        .smaller-size .wigzo-notification-info .wigzo-message  p{
+            margin: 0 0 5px;
+        }
+        .smaller-size .wigzo-event-image {
+            width: 70px
+        }
+        .smaller-size .wigzo-notification-info {
+            padding: 8px 20px 8px 80px;
+        }
+        .smaller-size .wigzo-time-stamp {
+            position: static;
+            margin-top: 5px
+        }
+        @-moz-keyframes slide-wigzo-down-top-right {
+            0% {
+                bottom: auto;
+                top: -100%;
+                right: 10px
+            }
+            100% {
+                top: 10px;
+                right: 10px
+            }
+        }
+        @-webkit-keyframes slide-wigzo-down-top-right {
+            0% {
+                bottom: auto;
+                top: -100%;
+                right: 10px
+            }
+            100% {
+                top: 10px;
+                right: 10px
+            }
+        }
+        @-ms-keyframes slide-wigzo-down-top-right {
+            0% {
+                bottom: auto;
+                top: -100%;
+                right: 10px
+            }
+            100% {
+                top: 10px;
+                right: 10px
+            }
+        }
+        @-o-keyframes slide-wigzo-down-top-right {
+            0% {
+                bottom: auto;
+                top: -100%;
+                right: 10px
+            }
+            100% {
+                top: 10px;
+                right: 10px
+            }
+        }
+        @keyframes slide-wigzo-down-top-right {
+            0% {
+                bottom: auto;
+                top: -100%;
+                right: 10px
+            }
+            100% {
+                top: 10px;
+                right: 10px
+            }
+        }
+        @-moz-keyframes slide-wigzo-down-top-left {
+            0% {
+                bottom: auto;
+                top: -100%;
+                left: 10px
+            }
+            100% {
+                top: 10px;
+                left: 10px
+            }
+        }
+        @-webkit-keyframes slide-wigzo-down-top-left {
+            0% {
+                bottom: auto;
+                top: -100%;
+                left: 10px
+            }
+            100% {
+                top: 10px;
+                left: 10px
+            }
+        }
+        @-ms-keyframes slide-wigzo-down-top-left {
+            0% {
+                bottom: auto;
+                top: -100%;
+                left: 10px
+            }
+            100% {
+                top: 10px;
+                left: 10px
+            }
+        }
+        @-o-keyframes slide-wigzo-down-top-left {
+            0% {
+                bottom: auto;
+                top: -100%;
+                left: 10px
+            }
+            100% {
+                top: 10px;
+                left: 10px
+            }
+        }
+        @keyframes slide-wigzo-down-top-left {
+            0% {
+                bottom: auto;
+                top: -100%;
+                left: 10px
+            }
+            100% {
+                top: 10px;
+                left: 10px
+            }
+        }
+        @-moz-keyframes slide-wigzo-up-bottom-left {
+            0% {
+                top: auto;
+                bottom: -100%;
+                left: 10px
+            }
+            100% {
+                bottom: 10px;
+                left: 10px
+            }
+        }
+        @-webkit-keyframes slide-wigzo-up-bottom-left {
+            0% {
+                top: auto;
+                bottom: -100%;
+                left: 10px
+            }
+            100% {
+                bottom: 10px;
+                left: 10px
+            }
+        }
+        @-ms-keyframes slide-wigzo-up-bottom-left {
+            0% {
+                top: auto;
+                bottom: -100%;
+                left: 10px
+            }
+            100% {
+                bottom: 10px;
+                left: 10px
+            }
+        }
+        @-o-keyframes slide-wigzo-up-bottom-left {
+            0% {
+                top: auto;
+                bottom: -100%;
+                left: 10px
+            }
+            100% {
+                bottom: 10px;
+                left: 10px
+            }
+        }
+        @keyframes slide-wigzo-up-bottom-left {
+            0% {
+                top: auto;
+                bottom: -100%;
+                left: 10px
+            }
+            100% {
+                bottom: 10px;
+                left: 10px
+            }
+        }
+        @-moz-keyframes slide-wigzo-up-bottom-right {
+            0% {
+                top: auto;
+                bottom: -100%;
+                right: 10px
+            }
+            100% {
+                bottom: 10px;
+                right: 10px
+            }
+        }
+        @-webkit-keyframes slide-wigzo-up-bottom-right {
+            0% {
+                top: auto;
+                bottom: -100%;
+                right: 10px
+            }
+            100% {
+                bottom: 10px;
+                right: 10px
+            }
+        }
+        @-ms-keyframes slide-wigzo-up-bottom-right {
+            0% {
+                top: auto;
+                bottom: -100%;
+                right: 10px
+            }
+            100% {
+                bottom: 10px;
+                right: 10px
+            }
+        }
+        @-o-keyframes slide-wigzo-up-bottom-right {
+            0% {
+                top: auto;
+                bottom: -100%;
+                right: 10px
+            }
+            100% {
+                bottom: 10px;
+                right: 10px
+            }
+        }
+        @keyframes slide-wigzo-up-bottom-right {
+            0% {
+                top: auto;
+                bottom: -100%;
+                right: 10px
+            }
+            100% {
+                bottom: 10px;
+                right: 10px
+            }
+        }
+        .wigzo-notification-info .wigzo-message {
+            line-height: 1.4
+        }
+        .wigzo-event-image>a {
+            z-index: 9999999;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: block;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center
+        }
+        #wigzoInnerHolder span#closeWigzo {
+            display: block;
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            right: 3px;
+            line-height: normal;
+        }
+        #wigzoInnerHolder span#closeWigzo:after {
+            content: "×";
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            color: #555;
+        }
+        .wigzoHolder {
+            border-radius: 3px;
+            overflow: hidden;
+            z-index: 2147483647;
+            text-align: left
+        }
+        @media only screen and (max-device-width: 425px) {
+            .wigzoHolder.wigzo-bottom-left{
+                -moz-animation: slide-wigzo-up-bottom-left 2s ease-in-out 1;
+                -o-animation: slide-wigzo-up-bottom-left 2s ease-in-out 1;
+                -ms-animation: slide-wigzo-up-bottom-left 2s ease-in-out 1;
+                -webkit-animation: slide-wigzo-up-bottom-left 2s ease-in-out 1;
+                animation: slide-wigzo-up-bottom-left 2s ease-in-out 1;
+                bottom: 10px;
+                left: 0;
+            }
+            .wigzoHolder.wigzo-top-left{
+                -moz-animation: slide-wigzo-down-top-left 2s ease-in-out 1;
+                -o-animation: slide-wigzo-down-top-left 2s ease-in-out 1;
+                -ms-animation: slide-wigzo-down-top-left 2s ease-in-out 1;
+                -webkit-animation: slide-wigzo-down-top-left 2s ease-in-out 1;
+                animation: slide-wigzo-down-top-left 2s ease-in-out 1;
+                top: 10px;
+                left: 0;
+            }
+            .wigzoHolder.wigzo-top-right{
+                -moz-animation: slide-wigzo-down-top-right 2s ease-in-out 1;
+                -o-animation: slide-wigzo-down-top-right ease-in-out 1;
+                -ms-animation: slide-wigzo-down-top-right 2s ease-in-out 1;
+                -webkit-animation: slide-wigzo-down-top-right 2s ease-in-out 1;
+                animation: slide-wigzo-down-top-right 2s ease-in-out 1;
+                top: 10px;
+                right: 0;
+            }
+            .wigzoHolder.wigzo-bottom-right{
+                -moz-animation: slide-wigzo-up-bottom-right 2s ease-in-out 1;
+                -o-animation: slide-wigzo-up-bottom-right ease-in-out 1;
+                -ms-animation: slide-wigzo-up-bottom-right 2s ease-in-out 1;
+                -webkit-animation: slide-wigzo-up-bottom-right 2s ease-in-out 1;
+                animation: slide-wigzo-up-bottom-right 2s ease-in-out 1;
+                bottom: 10px;
+                right: 0;
+            }
+            @-moz-keyframes slide-wigzo-down-top-right {
+                0% {
+                    bottom: auto;
+                    top: -100%;
+                    right: 0
+                }
+                100% {
+                    top: 10px;
+                    right: 0
+                }
+            }
+            @-webkit-keyframes slide-wigzo-down-top-right {
+                0% {
+                    bottom: auto;
+                    top: -100%;
+                    right: 0
+                }
+                100% {
+                    top: 10px;
+                    right: 0
+                }
+            }
+            @-ms-keyframes slide-wigzo-down-top-right {
+                0% {
+                    bottom: auto;
+                    top: -100%;
+                    right: 0
+                }
+                100% {
+                    top: 10px;
+                    right: 0
+                }
+            }
+            @-o-keyframes slide-wigzo-down-top-right {
+                0% {
+                    bottom: auto;
+                    top: -100%;
+                    right: 0
+                }
+                100% {
+                    top: 10px;
+                    right: 0
+                }
+            }
+            @keyframes slide-wigzo-down-top-right {
+                0% {
+                    bottom: auto;
+                    top: -100%;
+                    right: 0
+                }
+                100% {
+                    top: 10px;
+                    right: 0
+                }
+            }
+            @-moz-keyframes slide-wigzo-down-top-left {
+                0% {
+                    bottom: auto;
+                    top: -100%;
+                    left: 0
+                }
+                100% {
+                    top: 10px;
+                    left: 0
+                }
+            }
+            @-webkit-keyframes slide-wigzo-down-top-left {
+                0% {
+                    bottom: auto;
+                    top: -100%;
+                    left: 0
+                }
+                100% {
+                    top: 10px;
+                    left: 0
+                }
+            }
+            @-ms-keyframes slide-wigzo-down-top-left {
+                0% {
+                    bottom: auto;
+                    top: -100%;
+                    left: 0
+                }
+                100% {
+                    top: 10px;
+                    left: 0
+                }
+            }
+            @-o-keyframes slide-wigzo-down-top-left {
+                0% {
+                    bottom: auto;
+                    top: -100%;
+                    left: 0
+                }
+                100% {
+                    top: 10px;
+                    left: 0
+                }
+            }
+            @keyframes slide-wigzo-down-top-left {
+                0% {
+                    bottom: auto;
+                    top: -100%;
+                    left: 0
+                }
+                100% {
+                    top: 10px;
+                    left: 0
+                }
+            }
+            @-moz-keyframes slide-wigzo-up-bottom-left {
+                0% {
+                    top: auto;
+                    bottom: -100%;
+                    left: 0
+                }
+                100% {
+                    bottom: 10px;
+                    left: 0
+                }
+            }
+            @-webkit-keyframes slide-wigzo-up-bottom-left {
+                0% {
+                    top: auto;
+                    bottom: -100%;
+                    left: 0
+                }
+                100% {
+                    bottom: 10px;
+                    left: 0
+                }
+            }
+            @-ms-keyframes slide-wigzo-up-bottom-left {
+                0% {
+                    top: auto;
+                    bottom: -100%;
+                    left: 0
+                }
+                100% {
+                    bottom: 10px;
+                    left: 0
+                }
+            }
+            @-o-keyframes slide-wigzo-up-bottom-left {
+                0% {
+                    top: auto;
+                    bottom: -100%;
+                    left: 0
+                }
+                100% {
+                    bottom: 10px;
+                    left: 0
+                }
+            }
+            @keyframes slide-wigzo-up-bottom-left {
+                0% {
+                    top: auto;
+                    bottom: -100%;
+                    left: 0
+                }
+                100% {
+                    bottom: 10px;
+                    left: 0
+                }
+            }
+            @-moz-keyframes slide-wigzo-up-bottom-right {
+                0% {
+                    top: auto;
+                    bottom: -100%;
+                    right: 0
+                }
+                100% {
+                    bottom: 10px;
+                    right: 0
+                }
+            }
+            @-webkit-keyframes slide-wigzo-up-bottom-right {
+                0% {
+                    top: auto;
+                    bottom: -100%;
+                    right: 0
+                }
+                100% {
+                    bottom: 10px;
+                    right: 0
+                }
+            }
+            @-ms-keyframes slide-wigzo-up-bottom-right {
+                0% {
+                    top: auto;
+                    bottom: -100%;
+                    right: 0
+                }
+                100% {
+                    bottom: 10px;
+                    right: 0
+                }
+            }
+            @-o-keyframes slide-wigzo-up-bottom-right {
+                0% {
+                    top: auto;
+                    bottom: -100%;
+                    right: 0
+                }
+                100% {
+                    bottom: 10px;
+                    right: 0
+                }
+            }
+            @keyframes slide-wigzo-up-bottom-right {
+                0% {
+                    top: auto;
+                    bottom: -100%;
+                    right: 0
+                }
+                100% {
+                    bottom: 10px;
+                    right: 0
+                }
+            }
+            .wigzoHolder,
+            .wigzoHolder.smaller-size {
+                max-width: 100%;
+                border-radius: 0;
+                width: 100%
+            }
+            .wigzo-notification-info {
+                padding: 5px 5px 20px 110px
+            }
+            .wigzo-notification-info .wigzo-message,
+            .wigzo-notification-info .wigzo-message span {
+                font-size: 12px
+            }
+            .wigzo-time-stamp {
+                bottom: 0
+            }
+        }
+        .wigzo_absolute{
+            position: absolute;
+            bottom: 0px;
+        }
+
+        #wigzo-ratings{
+            position: absolute;
+            bottom: 13px;
+        }
+        #wigzo-outer-stars {
+            display:inline-block;
+            position:relative;
+            font-family:FontAwesome;
+            font-size: 18px;
+        }
+
+        #wigzo-outer-stars::before {
+            content:"\2605\2605\2605\2605\2605";
+        }
+
+        #wigzo-inner-stars {
+            position:absolute;
+            white-space:nowrap;
+            top:0;
+            left:0;
+            overflow:hidden;
+            width:0%;
+        }
+
+        #wigzo-inner-stars::before {
+            content:"\2605 \2605 \2605 \2605 \2605";
+            color:orange;
+        }
+    </style>
+<script type="text/javascript">
+        $(document).ready(function() {
+            initClosePopUp();
+            initTrackOpen();
+            handleDimensions();
+        });
+        let getWidth = () => {
+            return document.querySelector("#wigzoHolder").getBoundingClientRect().width || document.querySelector("#wigzoHolder").offsetWidth || '360'
+        };
+        let getHeight = () => {
+            return document.querySelector("#wigzoHolder").getBoundingClientRect().height || document.querySelector("#wigzoHolder").offsetHeight || '200'
+        };
+        var handleDimensions = function() {
+            var calcW = 'calc(' + getWidth() + 'px + 30px)';
+            var calcH = 'calc(' + getHeight() + 'px + 30px)';
+            let offset = $('#wigzopopup-offset-value').val() + $('#wigzopopup-offset-unit').val();
+            let forMobile = $('#wigzopopup-offset-device').val();
+            var wigzoHolderDimensions = {
+                height: calcH,
+                width: calcW
+            };
+
+            if($("#wigzoHolder").hasClass('wigzo-top-left')) {
+                if(forMobile === "true"){
+                    wigzoHolderDimensions.top = window.outerWidth < 520 ? offset : '0'
+                } else {
+                    wigzoHolderDimensions.top = offset || 0
+                }
+                wigzoHolderDimensions.left = "0";
+            } else if($("#wigzoHolder").hasClass('wigzo-bottom-left')) {
+                if(forMobile === "true"){
+                    wigzoHolderDimensions.bottom = window.outerWidth < 520 ? offset : '0'
+                } else {
+                    wigzoHolderDimensions.bottom = offset || 0
+                }
+                wigzoHolderDimensions.left = "0";
+            } else if($("#wigzoHolder").hasClass('wigzo-bottom-right')) {
+                if(forMobile === "true"){
+                    wigzoHolderDimensions.bottom = window.outerWidth < 520 ? offset : '0'
+                } else {
+                    wigzoHolderDimensions.bottom = offset || 0
+                }
+                //wigzoHolderDimensions.bottom = offset
+                wigzoHolderDimensions.right = "0";
+            } else if($("#wigzoHolder").hasClass('wigzo-top-right')) {
+                if(forMobile === "true"){
+                    wigzoHolderDimensions.top = window.outerWidth < 520 ? offset : '0'
+                } else {
+                    wigzoHolderDimensions.top = offset || 0
+                }
+                wigzoHolderDimensions.right = "0";
+            }
+            window.top.postMessage({type: "wigzo-onsite-notif-dimensions",
+                wigzoHolder : wigzoHolderDimensions}, "*");
+        };
+        var initTrackOpen = function () {
+            $('.WigzoOnsiteNotificationTrackOpen').on('click', function (e) {
+                e.preventDefault();
+                window.top.postMessage({type: "wigzo-onsite-notif-track-open"}, "*");
+                window.top.postMessage({type: "wigzo-onsite-notif-close-popup"}, "*");
+            });
+        };
+
+        var initClosePopUp = function () {
+            $('.WigzoOverlayClosePermanently').on('click', function() {
+                window.close();
+                window.top.postMessage({type: "wigzo-onsite-notif-close-popup"}, "*");
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="WigzoPopUp" class=" ">
+<div id="wigzoHolder" class=" wigzoHolder  wigzo-bottom-left smaller-size" style="display: block; background: transparent;">
+<div class="wigzo-notification" id="wigzoInnerHolder" style="    background: #fefefe;   border: 2px solid #ebeef0;  padding-top: 10px;   padding-bottom: 23px;box-shadow: 0 0 10px rgba(0, 0, 0, .2);">
+<input type="hidden" value="" id="wigzopopup-offset-value">
+<input type="hidden" value="" id="wigzopopup-offset-unit">
+<input type="hidden" value="" id="wigzopopup-offset-device">
+<div class="wigzo-event-image">
+<a href="javascript:void(0)" style="background-image:url(https://cdn.shopify.com/s/files/1/0608/7874/9892/products/bRyg9oRaA-8905566215191_8.webp?v=1686741330);background-size: contain;" class="wigzo-notification-url WigzoOnsiteNotificationTrackOpen"></a>
+</div>
+<div class="wigzo-notification-info">
+<div class="wigzo-message">
+<a href="javascript:void(0)" class="wigzo-notification-url WigzoOnsiteNotificationTrackOpen">
+<p>Still thinking it over? 🤔</p>
+<span>Spykar Limited Edition Dark Blue Regular Fit Narrow Length Mid rise Clean Look Premium Stre  Would Look So Good on You</span>
+</a>
+</div>
+</div>
+<span id="closeWigzo" class="WigzoOverlayClosePermanently"></span>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+
+    function initRatingStar(rate, position) {
+        var counter = 3;
+        var ratingStarsDiv = document.querySelector("#wigzo-ratings");
+        ratingStarsDiv.setAttribute("style",position + ":10px");
+        var outerStars = document.createElement("div");
+        outerStars.setAttribute("id","wigzo-outer-stars");
+        var innerStars = document.createElement("div");
+        innerStars.setAttribute("id","wigzo-inner-stars");
+        outerStars.appendChild(innerStars);
+        ratingStarsDiv.appendChild(outerStars);
+        innerStars.style.width = rate*20 + "%";
+    }
+    //initRatingStar('', 'right');
+
+</script>
+<script>
+    function offSetForPreview() {
+        console.log('parent location', window.parent.location);
+        console.log('child location', window.location);
+        let offset = $('#wigzopopup-offset-value').val();
+        let offsetUnit = $('#wigzopopup-offset-unit').val();
+        let wigzoHolder = $('#wigzoHolder');
+        if(wigzoHolder.hasClass('wigzo-top-left') || wigzoHolder.hasClass('wigzo-top-right')){
+            wigzoHolder.css({'bottom': 'unset', 'top': `calc(${parseInt(offset)}${offsetUnit} + 10px)`})
+        } else {
+            wigzoHolder.css({'top': 'unset', 'bottom': `calc(${parseInt(offset)}${offsetUnit} + 10px)`})
+        }
+    }
+    window.onload = window.location === window.parent.location ? offSetForPreview() : console.log('Not a preview');
+</script>
+
+</body></html>

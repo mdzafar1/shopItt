@@ -1,0 +1,172 @@
+.wizzy-search-wrapper .wizzy-search-filters-left .wizzy-facet-body .wizzy-facet-list .wizzy-facet-list-item .wizzy-facet-list-item-checkbox .checkbox-indicator, .wizzy-search-wrapper .wizzy-search-filters-top .wizzy-facet-body .wizzy-facet-list .wizzy-facet-list-item .wizzy-facet-list-item-checkbox .checkbox-indicator {
+    display: block;
+}
+.wizzy-search-wrapper {
+    margin: auto;
+    max-width: 1100px;
+    padding-top: 20px;
+}
+
+.wizzy-search-empty-results-wrapper *:empty, .wizzy-search-wrapper *:empty, .wizzy-progress-container *:empty, .wizzy-search-modal *:empty{
+    display: block;
+}
+
+span.wizzy-selected-facet-delete:empty {
+    display: inline-block;
+}
+
+.wizzy-search-filters-top {
+    min-height: 55px;
+}
+
+.wizzy-search-wrapper .wizzy-search-results-container .wizzy-search-filters-top {
+    border: 0;
+}
+
+.wizzy-search-wrapper.has-left-facets .wizzy-search-results-wrapper .wizzy-search-results-container {
+    border: 0;
+    margin-top: 15px;
+}
+
+.wizzy-search-wrapper .wizzy-search-filters-left .wizzy-filters-facet-block.collapsible .wizzy-facet-head, .wizzy-search-wrapper .wizzy-search-filters-top .wizzy-filters-facet-block.collapsible .wizzy-facet-head {
+    padding-right: 0;
+}
+
+.wizzy-search-wrapper .wizzy-search-filters-left .wizzy-filters-header, .wizzy-search-wrapper .wizzy-search-filters-top .wizzy-filters-header {
+    border-width: 2px;
+}
+
+.wizzy-search-wrapper .wizzy-search-results-container .wizzy-search-results .wizzy-search-results-list .wizzy-result-product .wizzy-result-product-item {
+    padding: 5px;
+}
+
+.wizzy-search-wrapper .wizzy-search-results-container .wizzy-search-results .wizzy-search-results-list .wizzy-result-product:hover {
+    background: none;
+}
+
+.wizzy-search-wrapper .wizzy-search-results-container .wizzy-search-results .wizzy-search-results-list .wizzy-result-product .wizzy-result-product-item:hover {
+    background: none;
+}
+
+.wizzy-search-wrapper .wizzy-search-results-container .wizzy-search-results .wizzy-search-results-list .wizzy-result-product .result-product-item-image {
+    min-height: auto;
+}
+
+.wizzy-autocomplete-wrapper .wizzy-autocomplete-top-products ul.autocomplete-top-products li.topproduct-item a.topproduct-item-link {
+    padding: 0;
+}
+
+.wizzy-autocomplete-wrapper .wizzy-autocomplete-top-products ul.autocomplete-top-products li.topproduct-item a.topproduct-item-link:hover, .wizzy-autocomplete-wrapper .wizzy-autocomplete-top-products ul.autocomplete-top-products li.topproduct-item a.topproduct-item-link[data-focus=true] {
+    background: none;
+}
+
+.wizzy-autocomplete-wrapper .wizzy-autocomplete-suggestions .autocomplete-item .wizzy-recent-search-clear-icon {
+    top: 13px;
+}
+
+@media (max-width: 768px) {
+    .wizzy-search-wrapper.has-filters-button-at-top.mobileTapped {
+        position: relative;
+    }
+    .wizzy-search-wrapper.has-filters-button-at-top {
+        position: relative;
+    }
+    .wizzy-search-wrapper .wizzy-search-results-container .wizzy-search-filters-top {
+        width: 270px;
+    }
+
+    .wizzy-search-wrapper.has-left-facets .wizzy-search-results-wrapper .wizzy-search-results-container .wizzy-search-results {
+        padding: 0 15px;
+    }
+    .wizzy-search-wrapper.has-left-facets.mobileTapped .wizzy-search-results-wrapper .wizzy-search-results-container .wizzy-search-results {
+        padding: 0;
+    }
+    .wizzy-search-summary-wrapper {
+        padding-left: 20px;
+    }
+    .wizzy-search-wrapper.mobileTapped {
+        position: static;
+    }
+    .wizzy-search-wrapper .wizzy-search-results-wrapper .wizzy-filters-mobile-entry {
+        text-decoration: none;
+    }
+    .wizzy-search-empty-results-wrapper {
+        padding: 20px;
+    }
+    .wizzy-search-wrapper {
+        max-width: 100%;
+    }
+    .wizzy-search-wrapper .wizzy-search-results-wrapper .wizzy-search-results-container, .wizzy-search-wrapper.has-left-facets .wizzy-search-results-wrapper .wizzy-search-results-container, .wizzy-search-wrapper.has-left-facets .wizzy-search-results-wrapper .wizzy-search-results-container {
+        width: calc(100% + 15px);
+    }
+    .wizzy-search-wrapper.mobileTapped .wizzy-search-results-wrapper .wizzy-search-results-container, .wizzy-search-wrapper.has-left-facets .wizzy-search-results-wrapper .wizzy-search-results-container, .wizzy-search-wrapper.mobileTapped .wizzy-search-results-wrapper .wizzy-search-results-container {
+        width: 100%;
+    }
+
+    .wizzy-autocomplete-wrapper .wizzy-autocomplete-suggestions .autocomplete-item .wizzy-recent-search-clear-icon {
+        right: 15px;
+        top: 20px;
+    }
+}
+
+
+/* OVERRIDE DEFAULT COLOR */
+
+.wizzy-search-wrapper .wizzy-search-filters-left .wizzy-facet-body.facet-body-sizes .wizzy-facet-list .wizzy-facet-list-item.facet-has-swatch.active .wizzy-facet-item-swatch.facet-text-swatch {
+    background-color: var(--wizzy-primary);
+    border: solid 1px var(--wizzy-primary);
+}
+
+.wizzy-search-wrapper .wizzy-search-filters-left .wizzy-facet-body.facet-body-sizes .wizzy-facet-list .wizzy-facet-list-item.facet-has-swatch.active .wizzy-facet-item-swatch.facet-text-swatch {
+    background-color: var(--wizzy-primary);
+    border: solid 1px var(--wizzy-primary);
+}
+
+
+@media (max-width: 768px) {
+    .wizzy-search-wrapper .wizzy-search-filters-left .wizzy-facet-body.facet-body-colors .wizzy-facet-list .wizzy-facet-list-item.facet-has-swatch.active .wizzy-facet-item-swatch.facet-text-swatch {
+        background-color: var(--wizzy-primary);
+        border: solid 1px var(--wizzy-primary);
+    }
+}
+
+.wizzy-scroll-to-top-wrapper .wizzy-scroll-to-top-button {
+    background-color: var(--wizzy-primary);
+}
+
+.wizzy-progress-container .wizzy-progress .wizzy-lds-ellipsis div {
+    background: var(--wizzy-primary);
+}
+
+.wizzy-search-wrapper .wizzy-search-filters-left .wizzy-facet-body .wizzy-facet-list .wizzy-facet-list-item.facet-range-item .noUi-horizontal .noUi-connect, .wizzy-search-wrapper .wizzy-search-filters-top .wizzy-facet-body .wizzy-facet-list .wizzy-facet-list-item.facet-range-item .noUi-horizontal .noUi-connect {
+    background: var(--wizzy-primary);
+}
+
+.wizzy-search-wrapper .wizzy-search-filters-left .wizzy-facet-body .wizzy-facet-list .wizzy-facet-list-item .wizzy-facet-list-item-checkbox input:checked ~ .checkbox-indicator, .wizzy-search-wrapper .wizzy-search-filters-top .wizzy-facet-body .wizzy-facet-list .wizzy-facet-list-item .wizzy-facet-list-item-checkbox input:checked ~ .checkbox-indicator {
+    background-color: var(--wizzy-primary);
+    border: solid 1px var(--wizzy-primary);
+}
+
+.wizzy-search-wrapper .wizzy-search-results-container .wizzy-pagination-container .wizzy-pagination-list li.active a {
+    background-color: var(--wizzy-primary);
+    border: solid 1px var(--wizzy-primary);
+}
+.wizzy-search-wrapper .wizzy-search-results-container .wizzy-pagination-container .wizzy-pagination-list li.active a:hover {
+    background-color: var(--wizzy-primary);
+}
+
+.wizzy-search-wrapper .wizzy-search-results-container .wizzy-search-results .wizzy-search-results-list .wizzy-result-product .wizzy-result-product-item .result-product-item-info .product-item-swatch-group .product-item-swatch-item.swatch-selected .wizzy-facet-item-swatch-wrapper {
+    border: solid 1px var(--wizzy-primary);
+}
+
+.wizzy-search-wrapper .wizzy-search-results-wrapper .wizzy-search-filters-left .wizzy-facet-body .wizzy-facet-list .wizzy-facet-list-item.active .wizzy-facet-list-item-label .wizzy-facet-item-swatch-wrapper.facet-visual-swatch, .wizzy-search-wrapper .wizzy-search-results-wrapper .wizzy-search-filters-list-top .wizzy-facet-body .wizzy-facet-list .wizzy-facet-list-item.active .wizzy-facet-list-item-label .wizzy-facet-item-swatch-wrapper.facet-visual-swatch {
+    border: solid 2px var(--wizzy-primary);
+}
+
+
+.wizzy-search-wrapper .wizzy-search-results-wrapper .wizzy-search-results-container .wizzy-pagination-container .wizzy-pagination-list li a {
+    background: var(--wizzy-primary);
+}
+.wizzy-search-wrapper .wizzy-search-results-wrapper .wizzy-search-results-container .wizzy-pagination-container .wizzy-pagination-list li a:hover, .wizzy-search-wrapper .wizzy-search-results-wrapper .wizzy-search-results-container .wizzy-pagination-container .wizzy-pagination-list li a:focus, .wizzy-search-wrapper .wizzy-search-results-wrapper .wizzy-search-results-container .wizzy-pagination-container .wizzy-pagination-list li a:active {
+    background: var(--wizzy-primary);
+}
